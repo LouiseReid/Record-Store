@@ -20,5 +20,8 @@ describe("Record", function(){
   });
   it("should have a price", function(){
     assert.strictEqual(record.price, 10)
+  });
+  it("should be able to print out the properties as a string", function(){
+    assert.strictEqual(record.properties(), "Liam Gallagher: As You Were, Rock, 10")
   })
 })
