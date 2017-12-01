@@ -25,6 +25,12 @@ RecordCollector.prototype = {
   },
   mostValuable: function(){
     return _.maxBy(this.records, "price")
+  },
+  sortRecordsAsc: function(){
+    return _.sortBy(this.records, "price")
+  },
+  sortRecordsDesc: function(){
+    return _.sortBy(this.records, "price").reverse()
   }
 }
 

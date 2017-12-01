@@ -54,7 +54,17 @@ describe("Record Collector", function(){
     recordCollector.buy(record1);
     recordCollector.buy(record2);
     assert.strictEqual(recordCollector.mostValuable(), record1)
-  })
+  });
+  it("should be able to sort their records by value ascending", function(){
+    recordCollector.buy(record1);
+    recordCollector.buy(record2);
+    assert.deepStrictEqual(recordCollector.sortRecordsAsc(), [record2, record1])
+  });
+  it("should be able to sort their records by value descending", function(){
+    recordCollector.buy(record1);
+    recordCollector.buy(record2);
+    assert.deepStrictEqual(recordCollector.sortRecordsDesc(), [record1, record2])
+  });
 
 
 })
