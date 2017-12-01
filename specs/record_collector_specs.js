@@ -49,6 +49,11 @@ describe("Record Collector", function(){
     louise.buy(record2);
     louise.buy(record3);
     assert.strictEqual(louise.genreValue("Rock"), 40)
+  });
+  it("should be able to view the most valuable record", function(){
+    recordCollector.buy(record1);
+    recordCollector.buy(record2);
+    assert.strictEqual(recordCollector.mostValuable(), record1)
   })
 
 

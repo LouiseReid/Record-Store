@@ -22,6 +22,9 @@ RecordCollector.prototype = {
   },
   genreValue: function(genre){
     return _.sumBy(_.filter(this.records, {genre: genre}), "price")
+  },
+  mostValuable: function(){
+    return _.maxBy(this.records, "price")
   }
 }
 
