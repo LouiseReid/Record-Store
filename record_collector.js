@@ -16,6 +16,9 @@ RecordCollector.prototype = {
   sell: function(record){
     this.cash += record.price
     return _.remove(this.records, record)
+  },
+  collectionValue: function(){
+    return _.sumBy(this.records, "price")
   }
 }
 
