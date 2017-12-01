@@ -21,6 +21,9 @@ RecordStore.prototype = {
   financials: function(){
     var inventoryValue = _.sumBy(this.inventory, "price");
     return "Inventory value: " + inventoryValue + " Store Balance: " + this.balance;
+  },
+  genreSearch: function(genre){
+    return _.filter(this.inventory, ["genre", genre])
   }
 }
 

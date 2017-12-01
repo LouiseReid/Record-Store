@@ -46,5 +46,10 @@ describe("Record Store", function(){
     recordStore.addRecord(record2);
     recordStore.sellRecord(record2);
     assert.strictEqual(recordStore.financials(),"Inventory value: 10 Store Balance: 2" )
+  });
+  it("can view all records of a given genre", function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    assert.deepStrictEqual(recordStore.genreSearch("Rock"), [record1])
   })
 })
