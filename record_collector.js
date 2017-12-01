@@ -1,6 +1,7 @@
 var _ = require("lodash")
 
-var RecordCollector = function(cash){
+var RecordCollector = function(name, cash){
+  this.name = name
   this.cash = cash
   this.records = []
 }
@@ -31,6 +32,12 @@ RecordCollector.prototype = {
   },
   sortRecordsDesc: function(){
     return _.sortBy(this.records, "price").reverse()
+  },
+  compare: function(collection1, collection2){
+    if(collection1.collectionValue() > collection2.collectionValue()){
+      return collection1.name + "'s" + " collection is worth more"
+    }
+    return collection2.name + "'s" + "collection is worth more"
   }
 }
 

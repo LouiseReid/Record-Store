@@ -11,11 +11,14 @@ describe("Record Collector", function(){
   var record3;
 
   beforeEach(function(){
-    recordCollector = new RecordCollector(20);
+    recordCollector = new RecordCollector("Sam", 20);
     record1 = new Record("Liam Gallagher", "As You Were", "Rock", 10);
     record2 = new Record("The Venga Boys", "We Like to Party", "Euro Pop", 2);
     record3 = new Record("The Beatles", "Platinum Vol 1", "Rock", 30);
   });
+  it("should have a name", function(){
+    assert.strictEqual(recordCollector.name, "Sam")
+  })
   it("should have cash", function(){
     assert.strictEqual(recordCollector.cash, 20)
   });
@@ -44,7 +47,7 @@ describe("Record Collector", function(){
     assert.strictEqual(recordCollector.collectionValue(), 12)
   });
   it("should be able to view the total value of a given genre", function(){
-    var louise = new RecordCollector(100);
+    var louise = new RecordCollector("Louise", 100);
     louise.buy(record1);
     louise.buy(record2);
     louise.buy(record3);
@@ -65,6 +68,16 @@ describe("Record Collector", function(){
     recordCollector.buy(record2);
     assert.deepStrictEqual(recordCollector.sortRecordsDesc(), [record1, record2])
   });
+  it("should be able to compare its collection value with another collectors", function(){
+    var louise = new RecordCollector("Louise", 100);
+    louise.buy(record1);
+    louise.buy(record2);
+    louise.buy(record3);
+    recordCollector.buy(record1);
+    recordCollector.buy(record2);
+    assert.strictEqual(recordCollector.compare(louise, recordCollector), "Louise's collection is worth more")
+
+  })
 
 
 })
