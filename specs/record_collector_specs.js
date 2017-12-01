@@ -42,6 +42,13 @@ describe("Record Collector", function(){
     recordCollector.buy(record1);
     recordCollector.buy(record2);
     assert.strictEqual(recordCollector.collectionValue(), 12)
+  });
+  it("should be able to view the total value of a given genre", function(){
+    var louise = new RecordCollector(100);
+    louise.buy(record1);
+    louise.buy(record2);
+    louise.buy(record3);
+    assert.strictEqual(louise.genreValue("Rock"), 40)
   })
 
 

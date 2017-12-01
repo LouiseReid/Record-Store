@@ -19,6 +19,9 @@ RecordCollector.prototype = {
   },
   collectionValue: function(){
     return _.sumBy(this.records, "price")
+  },
+  genreValue: function(genre){
+    return _.sumBy(_.filter(this.records, {genre: genre}), "price")
   }
 }
 
