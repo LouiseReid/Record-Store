@@ -1,0 +1,23 @@
+{
+  "name": "js_record_store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouiseReid/Record-Store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouiseReid/Record-Store/issues"
+  },
+  "homepage": "https://github.com/LouiseReid/Record-Store#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1"
+  }
+}
