@@ -35,9 +35,9 @@ RecordCollector.prototype = {
   },
   compare: function(collection1, collection2){
     if(collection1.collectionValue() > collection2.collectionValue()){
-      return collection1.name + "'s" + " collection is worth more"
+      return collection1.name + "'s collection is worth more"
     }
-    return collection2.name + "'s" + "collection is worth more"
+    return collection2.name + "'s collection is worth more"
   }
 }
 
