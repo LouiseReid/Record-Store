@@ -6,10 +6,12 @@ describe("Record Store", function(){
 
   var recordStore;
   var record1;
+  var record2;
 
   beforeEach(function(){
     recordStore = new RecordStore("Fopp", "Glasgow");
-    record1 = new Record("Liam Gallagher", "As You Were", "Rock", 10)
+    record1 = new Record("Liam Gallagher", "As You Were", "Rock", 10);
+    record2 = new Record("The Venga Boys", "We Like to Party", "Euro Pop", 2)
 
   });
 
@@ -29,4 +31,25 @@ describe("Record Store", function(){
     recordStore.addRecord(record1);
     assert.strictEqual(recordStore.inventory.length, 1)
   });
+  it("should be able to list the inventory", function(){
+    recordStore.addRecord(record1);
+    assert.deepStrictEqual(recordStore.inventorylist(), [record1])
+  });
+  it("can sell a record", function(){
+    recordStore.addRecord(record1);
+    recordStore.sellRecord(record1);
+    assert.strictEqual(recordStore.balance, 10);
+    assert.strictEqual(recordStore.inventory.length, 0);
+  });
+  it("should show the financial situ - balance and value of inventory", function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.sellRecord(record2);
+    assert.strictEqual(recordStore.financials(),"Inventory value: 10 Store Balance: 2" )
+  });
+  it("can view all records of a given genre", function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    assert.deepStrictEqual(recordStore.genreSearch("Rock"), [record1])
+  })
 })
